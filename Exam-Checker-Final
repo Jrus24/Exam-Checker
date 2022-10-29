@@ -1,0 +1,194 @@
+//Exam Checker
+//Helps Teacher to easily convert and record the exams of student
+//Programmers:
+//1. John Riel Parcasio
+//2. Kristopher Martinez
+//3. Jairus Danielle Perez
+//4  Godfrey Oamil
+//5. Nico Aningat
+//Date Submitted: 10/29/2022
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace CheckerForm
+{
+    public partial class Form1 : Form
+    {
+        DataTable table = new DataTable();
+        int index;
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int index;
+
+            index = int.Parse(textBox1.Text);
+            
+            if (index == 1)
+            {
+                textBox2.Text = "Jairus Perez";
+                textBox3.Text = "Jupiter";
+
+            }
+            else if(index == 2)
+            {
+                textBox2.Text = "Kristopher";
+                textBox3.Text = "Mars";
+            }
+            else if (index == 3)
+            {
+                textBox2.Text = "Godfrey Oamil";
+                textBox3.Text = "Mercury";
+            }
+            else if (index == 4)
+            {
+                textBox2.Text = "Nico Aningat";
+                textBox3.Text = "Earth";
+            }
+            else if (index == 5)
+            {
+                textBox2.Text = "John Riel Magallanes";
+                textBox3.Text = "Pluto";
+            }
+            else
+            {
+                MessageBox.Show("NO ID FOUND", "OK", MessageBoxButtons.OK);
+            }
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index = e.RowIndex;
+            DataGridViewRow row = dataGridView1.Rows[index];
+            textBox1.Text = row.Cells[0].Value.ToString();
+            textBox2.Text = row.Cells[1].Value.ToString();
+            textBox3.Text = row.Cells[2].Value.ToString();
+            textBox4.Text = row.Cells[3].Value.ToString();
+            textBox4.Text = row.Cells[4].Value.ToString();
+            textBox4.Text = row.Cells[5].Value.ToString();
+            textBox4.Text = row.Cells[6].Value.ToString();
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            table.Columns.Add("STUDENT ID", Type.GetType("System.Int32"));
+            table.Columns.Add("NAME", Type.GetType("System.String"));
+            table.Columns.Add("SECTION", Type.GetType("System.String"));
+            table.Columns.Add("SUBJECT NO", Type.GetType("System.Int32"));
+            table.Columns.Add("SUBJECT", Type.GetType("System.String"));
+            table.Columns.Add("SCORE", Type.GetType("System.Int32"));
+            table.Columns.Add("RESULT", Type.GetType("System.String"));
+            dataGridView1.DataSource = table;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int index;
+
+            index = int.Parse(textBox4.Text);
+
+            if(index == 1)
+            {
+                textBox5.Text = "OOP";
+            }
+            else if(index == 2)
+            {
+                textBox5.Text = "NETWORKING";
+            }
+            else if (index == 3)
+            {
+                textBox5.Text = "DATA STRUCTURE";
+            }
+            else if (index == 4)
+            {
+                textBox5.Text = "SCIENCE";
+            }
+            else if (index == 5)
+            {
+                textBox5.Text = "LOGIC";
+            }
+            else
+            {
+                MessageBox.Show("NO SUJECT FOUND", "", MessageBoxButtons.OK);
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int index;
+
+            index = int.Parse(textBox6.Text);
+
+            if(index >=50)
+            {
+                textBox7.Text = "Excellent";
+                MessageBox.Show("CONGRATS!", "Passed", MessageBoxButtons.OK);
+            }
+            else if(index >= 40)
+            {
+                textBox7.Text = "Very Good";
+                MessageBox.Show("CONGRATS", "Passed", MessageBoxButtons.OK);
+            }
+            else if (index >= 25)
+            {
+                textBox7.Text = "Good";
+                MessageBox.Show("CONGRATS", "Passed", MessageBoxButtons.OK);
+            }
+            else
+            {
+                textBox7.Text = "Failed";
+                MessageBox.Show("Better Luck Next Time", "Failed", MessageBoxButtons.OK);
+            }
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            table.Rows.Add(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text);
+            MessageBox.Show("ADDED");
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.RemoveAt(index);
+            MessageBox.Show("Clear");
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+           
+            
+        }
+    }
+}
